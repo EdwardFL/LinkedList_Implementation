@@ -23,6 +23,21 @@ public class LinkedList {
         }
     }
 
+    public void insertRec(int value, int index) {
+        head = insertRec(value, index, head);
+    }
+
+    private Node insertRec(int value, int index, Node node) {
+        if (index == 0) {
+            Node temp = new Node(value, node);
+            size++;
+            return temp;
+        }
+
+        node.next = insertRec(value, index--, node.next);
+        return node;
+    }
+
     public void insert(int data, int index) {
         // takes O(N) - linear time
         if (index == 0) {
@@ -145,6 +160,51 @@ public class LinkedList {
             node = node.next;
         }
         System.out.println("END");
+    }
+
+    public void deleteDuplicates() {
+        Node node = head;
+
+        while (node.next != null) {
+            if (node.data == node.next.data) {
+                node.next = node.next.next;
+                size--;
+            } else {
+                node = node.next;
+            }
+        }
+
+        tail = node;
+        tail.next = null;
+    }
+
+    public static LinkedList mergeTwoLists(LinkedList first, LinkedList second) {
+        Node f = first.head;
+        Node s = second.head;
+
+        LinkedList mergedList = new LinkedList();
+
+        while (f != null && s != null) {
+            if (f.data < s.data) {
+                mergedList.insertLast(f.data);
+                f = f.next;
+            } else {
+                mergedList.insertLast(s.data);
+                s = s.next;
+            }
+        }
+
+        while (f != null) {
+            mergedList.insertLast(f.data);
+            f = f.next;
+        }
+
+        while (s != null) {
+            mergedList.insertLast(s.data);
+            s = s.next;
+        }
+
+        return mergedList;
     }
 
     public int getSize() {

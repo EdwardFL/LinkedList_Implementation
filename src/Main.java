@@ -73,5 +73,34 @@ public class Main {
         System.out.println("Element " + circularDoublyLinkedList.delete(13) + " was deleted");
         circularDoublyLinkedList.display();
         System.out.println("Circular DoublyLinkedList size: " + circularDoublyLinkedList.getSize());
+
+        System.out.println("================= LeetCode problems =================");
+        System.out.println("================= LeetCode problems =================");
+        LinkedList linkedList2 = new LinkedList();
+        linkedList2.insertFirst(5);
+        linkedList2.insertFirst(5);
+        linkedList2.insertFirst(5);
+        linkedList2.insert(12,3);
+        linkedList2.insert(16,4);
+        linkedList2.insert(20,5);
+        linkedList2.insertLast(22);
+        linkedList2.insertLast(22);
+        linkedList2.insertLast(22);
+        linkedList2.display();
+        linkedList2.deleteDuplicates();
+        linkedList2.display();
+        System.out.println("================= Merge two sorted LinkedLists =================");
+        LinkedList first = new LinkedList();
+        LinkedList second = new LinkedList();
+        first.insertLast(1);
+        first.insertLast(2);
+        first.insertLast(3);
+        first.display();
+        second.insertLast(1);
+        second.insertLast(3);
+        second.insertLast(4);
+        second.display();
+        LinkedList mergedList = LinkedList.mergeTwoLists(first, second);
+        mergedList.display();
     }
 }
